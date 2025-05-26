@@ -101,14 +101,95 @@ YOLOv5在COCO数据集上训练，因此其默认识别的80个类别与COCO数�
 .
 ├── data # 数据相关配置文件
 ├── detect.py # 模型推理检测脚本
-├── export.py 
 ├── models # 模型相关配置文件和模型结构代码
-├── pyproject.toml
 ├── requirements.txt # 依赖库版本文件
-├── segment
+├── runs  # 输出结果文件夹
 ├── train.py # 训练脚本文件
-├── tutorial.ipynb
+├── tutorial.ipynb # 官方指南
 ├── utils # 相关工具代码，如绘图和loss值
-└── val.py # 模型测试脚本
+├── val.py # 模型测试脚本
+└── yolov5s.pt   # 下载模型文件
+
+```
+
+### 运行测试程序并下载模型
+
+```shell
+python detect.py --weights yolov5s.pt --conf 0.25 --source data/images
+```
+
+## 子目录文件夹
+
+data子文件夹
+
+```shell
+.
+├── hyps   # 超参数文件夹
+│   ├── hyp.no-augmentation.yaml
+│   ├── hyp.Objects365.yaml
+│   ├── hyp.scratch-high.yaml
+│   ├── hyp.scratch-low.yaml
+│   ├── hyp.scratch-med.yaml
+│   └── hyp.VOC.yaml
+├── images  # 测试数据文件夹
+│   ├── bus.jpg
+│   └── zidane.jpg
+├── Objects365.yaml
+├── scripts  # 数据下载脚本
+│   ├── download_weights.sh
+│   ├── get_coco.sh
+│   ├── get_coco128.sh
+│   ├── get_imagenet.sh
+│   ├── get_imagenet10.sh
+│   ├── get_imagenet100.sh
+│   └── get_imagenet1000.sh
+├── Argoverse.yaml   # 数据配置文件 yaml文件
+├── coco.yaml
+├── coco128-seg.yaml
+├── coco128.yaml
+├── ImageNet.yaml
+├── ImageNet10.yaml
+├── ImageNet100.yaml
+├── ImageNet1000.yaml
+├── GlobalWheat2020.yaml
+├── SKU-110K.yaml
+├── VisDrone.yaml
+├── VOC.yaml
+└── xView.yaml
+```
+
+models子文件夹
+
+```shell
+.
+├── hub  # 其他网络配置的yaml文件
+├── common.py # 网络层文件
+├── yolo.py  # 网络架构代码
+├── yolov5l.yaml
+├── yolov5m.yaml
+├── yolov5n.yaml
+├── yolov5s.yaml
+└── yolov5x.yaml
+```
+
+utils文件夹
+
+```shell
+.
+├── activations.py    
+├── augmentations.py
+├── autoanchor.py
+├── autobatch.py
+├── callbacks.py
+├── dataloaders.py
+├── downloads.py
+├── general.py
+├── google_app_engine
+├── loggers
+├── loss.py  # 损失函数计算
+├── metrics.py
+├── plots.py
+├── torch_utils.py
+└── triton.py
 ```
 
